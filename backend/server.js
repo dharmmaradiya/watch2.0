@@ -32,6 +32,12 @@ app.use((err, req, res, next) => {
   });
 });
 
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Timeora Backend is running!',
+    status: 'success'
+  });
+});
 const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
