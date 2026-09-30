@@ -31,7 +31,15 @@ app.use((err, req, res, next) => {
     stack: process.env.NODE_ENV === 'production' ? null : err.stack,
   });
 });
-
+  
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:5173',
+    'https://YOUR-NETLIFY-SITE.netlify.app'
+  ],
+  credentials: true
+}));
 app.get('/', (req, res) => {
   res.json({
     message: 'Timeora Backend is running!',
